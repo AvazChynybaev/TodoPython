@@ -29,6 +29,7 @@ urlpatterns = [
     path('added', added),
     path('changed', changed),
     path('deleted', deleted),
-    path('books/', books, name='books')
+    path('books/', books, name='books'),
+    path('add-todo/', add_todo, name='add-todo')
 ]   + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
