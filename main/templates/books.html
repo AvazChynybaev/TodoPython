@@ -25,18 +25,21 @@
         {% if book.is_favorite %}
             style="background-color: #FFE082;"   
         {% endif %}>
-            <h2>{{ book.title }}</h2>
-            <h3>{{ book.author }}</h3>
-            <h4>{{ book.genre }}</h4>
-            <h4>{{ book.description }}</h4>
-            <h4>{{ book.year }}</h4>
-            <h4>{{ book.price }}</h4>
+            <h2><span style="color: chocolate;">Название книги:</span> {{ book.title }}</h2>
+            <h3><span style="color: chocolate;">Автор:</span> {{ book.author }}</h3>
+            <h4><span style="color: chocolate;">Жанр:</span> {{ book.genre }}</h4>
+            <h4><span style="color: chocolate;">Описание:</span> {{ book.description }}</h4>
+            <h4><span style="color: chocolate;">Год издания:</span> {{ book.year }}</h4>
+            <h4><span style="color: chocolate;">Цена:</span> {{ book.price }} сомов</h4>
             <form action="{% url 'delete-book' book.id %}">
                 <button>Удалить</button>
             </form>
             <form action="{% url 'mark-book' book.id %}"><br>          
                 <button>Избранное</button>
-            </form>                       
+            </form>
+            <form action="{% url 'book-details' book.id %}"><br>
+                <button>Подробнее о книге</button>
+            </form>                    
         </div>        
     {% endfor %}
 </body>
