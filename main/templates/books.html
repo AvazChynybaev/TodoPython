@@ -21,13 +21,22 @@
     </form>    
     {% for book in books%}
         <hr>
-        <div>
+        <div 
+        {% if book.is_favorite %}
+            style="background-color: #FFE082;"   
+        {% endif %}>
             <h2>{{ book.title }}</h2>
             <h3>{{ book.author }}</h3>
             <h4>{{ book.genre }}</h4>
             <h4>{{ book.description }}</h4>
             <h4>{{ book.year }}</h4>
-            <h4>{{ book.price }}</h4>            
+            <h4>{{ book.price }}</h4>
+            <form action="{% url 'delete-book' book.id %}">
+                <button>Удалить</button>
+            </form>
+            <form action="{% url 'mark-book' book.id %}"><br>          
+                <button>Избранное</button>
+            </form>                       
         </div>        
     {% endfor %}
 </body>
